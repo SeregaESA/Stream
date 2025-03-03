@@ -1,18 +1,15 @@
 package stream;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class methodFilter {
     public static void main(String[] args) {
-        Student st1 = new Student("Ivan", 'M', 22,3, 8.3);
+        Student st1 = new Student("Mariya", 'M', 22,3, 8.3);
         Student st2 = new Student("Nikolay", 'M', 28,2, 6.4);
         Student st3 = new Student("Elena", 'W', 19,1, 8.9);
         Student st4 = new Student("Petr", 'M', 35,4, 7);
-        Student st5 = new Student("Mariya", 'W', 23, 3,9.1);
+        Student st5 = new Student("Bob", 'M', 22,3, 8.3);
 
         List<Student> students = new ArrayList<>();
         students.add(st1);
@@ -28,20 +25,26 @@ public class methodFilter {
 
         List<Student> studentsMan = students.stream().filter(student -> student.getSex() == 'M').toList();
         List<Student> studentsWoman = students.stream().filter(student -> student.getSex() == 'W').toList();
-        System.out.println(studentsMan);
-        System.out.println(studentsWoman);
+//        System.out.println(studentsMan);
+//        System.out.println(studentsWoman);
 
         Optional<Student> maxAvgGrade = students.stream().max(Comparator.comparingDouble(Student::getAvgGrade));
         System.out.println("Cтудент " + maxAvgGrade.get().getName() + ", " + "с баллом " + maxAvgGrade.get().getAvgGrade());
         //studentsMan.forEach(System.out::println);
 
         Student rt = students.stream().filter(student -> student.getName().equals("Elena")).findFirst().get();
-        System.out.println(rt);
+        //System.out.println(rt);
 
         double result = students.stream().mapToDouble(Student::getAvgGrade).sum();
         double ser = result / students.size();
+        double result2 = students.stream().mapToDouble(Student::getAvgGrade).average().getAsDouble();
         System.out.println(result);
         System.out.println(ser);
+        System.out.println(result2);
+
+        students.stream().distinct().forEach(System.out::println);
+        System.out.println("Количество студентов в списке " + students.stream().count());
+
     }
 }
 
@@ -110,6 +113,18 @@ class Student {
                 ", course=" + course +
                 ", avgGrade=" + avgGrade +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student student)) return false;
+        return getSex() == student.getSex() && getAge() == student.getAge() && getCourse() == student.getCourse() && Double.compare(student.getAvgGrade(), getAvgGrade()) == 0 && Objects.equals(getName(), student.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getSex(), getAge(), getCourse(), getAvgGrade());
     }
 }
 class Util1 {
