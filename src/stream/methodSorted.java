@@ -20,10 +20,10 @@ public class methodSorted {
         list.add(2);
         list.add(3);
         list.add(5);
-        //System.out.println(list);
+        System.out.println(list);
 
         list = list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
-        //System.out.println(list);
+        System.out.println(list);
         List<Integer> sort = list.stream().filter(integer -> integer % 2 != 0).sorted(Comparator.reverseOrder()).toList();
         System.out.println(sort);
 

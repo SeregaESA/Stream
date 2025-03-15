@@ -32,13 +32,15 @@ class GenMethod {
 
 // ArrayList<T> в этом месте пишем вмесот <T> парраметр, который будем возвращать (return будет тип <T>)
 // T getSecondElement - T перед именем метода указывает какой тип будет возвращать метод
-// <T> указывает java, что Т перед метод является параметризирванной. Если его убрать, то java не поймёт что такое Т
+// <T> указывает java, что Т перед метод является параметризирванной. Если его убрать, то java не поймёт что такое Т,
+// <T> указывается, если параметризированн только метод, при объявлении класса указан Т, то <T> можно неписать.
+// Так же вместо <T> можем написать <T extends Number> тем самым ограничив тип Т. В ArrayList<T> list так писать нельзя
 
     public static <T> T getSecondElement(ArrayList<T> list) {
         return list.get(0);
     }
 
-    public static <T> T getElement(T[] array) {
+    public static <T extends Number> T getElement(T[] array) {
         return array[0];
     }
 }
