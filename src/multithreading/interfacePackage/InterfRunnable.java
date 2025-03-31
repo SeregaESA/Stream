@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.interfacePackage;
 
 public class InterfRunnable {
 
