@@ -35,6 +35,22 @@ public class Select {
 //                                           колонки salary из табл. user)
 //  Пример: SELECT name, age*2 FROM user (вывести колонку name и колонку age умноженную на 2 из табл user)
 //
+//  Выражения со строками
+//  Конкатенация указанных столбцов в одну строку (смотреть команды для типа БД, могут быть разные). Можно производить
+//  с разными типами колонок. При конкатенации значение null игнорируется
+//  Пример: select concat(name, ' ', last_name, ' ', car_id) from users;
+//  Пример: select
+//             concat('My name is ', name, ' ','My lastName is ', last_name, ' ', car_id)
+//          from users;
+//
+//  Alias - альтернативное имя для столбца или целого выражения
+//  SELECT column(s) alias, expression(s) alias FROM table;
+//  Пример: select
+//          concat('My name is ', name, ' ','My lastName is ', last_name, ' ', car_id) pop
+//          from users; (название этого выражения изменится на pop)
+//  Пример: select name as n, last_name as LS from users; (выведи колонку name как n, колонку last_name как LS из
+//                                                         табл. users)
+//  Пример: select name as n, last_name as "LS rew" from users; (пишем в двойных ковычках, если исполь. пробел)
 //
 
 
