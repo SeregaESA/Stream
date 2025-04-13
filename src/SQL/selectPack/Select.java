@@ -114,4 +114,71 @@ public class Select {
 //  Пример: select * from user order by name desc, salary;
 //  Пример: select name, last_name from user order by 2; можем указать номер столбца из нашего селект листа
 //
+//---------------------------------------------------------------------------------------------------------------------
+//
+// JOIN - объеднение таблиц. Должна быть логическая связь между табл.
+//
+// INNER JOIN (NATURAL JOIN) - есть три вида: NATURAL JOIN, USING, ON.
+// NATURAL JOIN - объединяет таблицы по одному или нескольким общем столбцам.
+// SELECT column(s) FROM table_1 NATURAL JOIN table_2;
+// Пример: select * from user INNER JOIN car; Выведи таблицу user и объедини с табл. car (связанны по id)
+// Пример: select CA.model, US.name, car_id from user US INNER JOIN car CA; US и CA - это алисы наших табл. Мы можем
+//         колонки указывать по этим алисам, но колонку по которой происходит объединение привязывать к одной табл.
+//         нельзя
+//
+// USING - указываем по какому столбцу объединить таблицы
+// SELECT column(s) FROM table_1 JOIN table_2 USING(column(s);
+//                     USING(column(s) - в отличии от NATURAL JOIN в этом параметре мы указываем по какому столбцу
+//                                       производить объединение (если у нас больше одного общего столбца)
+// Пример: select * from user JOIN car USING (car_id); - Объедини табл. user и car по столбцу car_id
+// Пример: select user.car_id, name user JOIN car USING (car_id); Если хотим вывести общий столбец, то нужно указыть из
+//         какой табл. выводить (название табл. или её алиес).
+//
+// ON - самый нормальный.
+// select column(s) from table_1 JOIN table_2 ON(column1 = column2);
+//                     ON(column1 = column2) - указываем по каким колонкам нужно объединить, если их значения равны
+// Пример: select * from user JOIN car ON(user.name = car.model); Объедини таблицы user и car по колонкам user.name
+//         и car.model, если их значения равны
+//
+//--------------------------------------------------------------------------------------------------------------------
+//
+// Объединение нескольких табл.
+//
+// Пример: select * from user NATURAL JOIN car NATURAL JOIN region; Первым пройдёт объединение user и car, а затем
+//         результат объединиться в region
+// Пример: select * from user JOIN car USING(car_id) JOIN region USING(region_id);
+//
+//-------------------------------------------------------------------------------------------------------------------
+//
+// Объединение табл. с помощью неравенств
+// select column(s) from table_1 JOIN table_2 ON(column1{знак неравенства}column2);
+// Пример: select first_name from user U JOIN car C ON(U.car_id = C.car_id AND model != honda);
+//                     AND model != honda - прописываем логический опертатор.
+//
+//--------------------------------------------------------------------------------------------------------------------
+//
+// Объединение по колонкам в одной табл.
+// Пример: select U1.name, U2.name from user JOIN user U2 ON(U1.model_id = U2.user_id); SQL будет рассматривать эту
+//                запись, как две разные таблицы (по alias)
+//
+//-------------------------------------------------------------------------------------------------------------------
+//
+// OUTER JOIN (LEFT OUTER JOIN, RIGHT OUTER JOIN, FULL OUTER JOIN) - объединяют табл. по заданному параметру и
+// дополнительно выводят те данные, которые не подошли по параметрам
+//
+// LEFT OUTER JOIN
+// select column(s) from table_1 LEFT OUTER JOIN table_2 ON (column1 = column2);
+// Пример: select * from user LEFT OUTER JOIN car ON(user.name = car.model);Объедини таблицы user и car по колонкам
+// user.name и car.model, если их значения равны и всех остальных из левой (user) табл.
+//
+// RIGHT OUTER JOIN
+// select column(s) from table_1 RIGHT OUTER JOIN table_2 ON (column1 = column2); работает так же, но с правой табл.
+//
+// FULL OUTER JOIN
+// select column(s) from table_1 FULL OUTER JOIN table_2 ON (column1 = column2); выводит табл по объединению и строки
+// которые не вошли в условия
+//
+//------------------------------------------------------------------------------------------------------------------
+//
+//
 }
