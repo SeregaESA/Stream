@@ -1,4 +1,4 @@
-package SQL.selectPack;
+package SQL.dmlCommands.selectPack.select;
 
 public class Select {
 

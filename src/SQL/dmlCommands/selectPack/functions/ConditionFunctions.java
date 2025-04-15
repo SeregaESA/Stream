@@ -1,4 +1,4 @@
-package SQL.selectPack.functions;
+package SQL.dmlCommands.selectPack.functions;
 
 public class ConditionFunctions {
 //
