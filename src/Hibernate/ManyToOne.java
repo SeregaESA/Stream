@@ -2,6 +2,7 @@ package Hibernate;
 
 public class ManyToOne {
 
+// Если оссоциация заканчивается на One, то должно быть одно поле (Относится к одной компании).
 // @ManyToOne (optional = true/false, fetch = FetchType.LAZY/EAGER, cascade = CascadeType.DETACH/PERSIST)
 // @JoinColumn(name = "company_id")
 // private Company companyId;
