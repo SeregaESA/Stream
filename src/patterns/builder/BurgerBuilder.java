@@ -1,4 +1,4 @@
-package patterns;
+package patterns.builder;
 
 public interface BurgerBuilder {
     BurgerBuilder rezBulca();

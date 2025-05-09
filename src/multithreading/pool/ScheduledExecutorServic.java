@@ -20,16 +20,12 @@ public class ScheduledExecutorServic {
         // говорим: выполни new MyRunnable1() через 3 секунды
 
 //        scheduledExecutorService.scheduleAtFixedRate(new MyRunnable2(), 3, 5, TimeUnit.SECONDS); //
-        // планирует задачу для периодического выполгнения. Время между заданиями считается от начала одного и до
+        // планирует задачу для периодического выполнения. Время между заданиями считается от начала одного и до
         // начала следующего
 
         scheduledExecutorService.scheduleWithFixedDelay(new MyRunnable2(), 3, 5, TimeUnit.SECONDS); //
-        // планирует задачу для периодического выполгнения. Время между заданиями считается от конца одного и до
+        // планирует задачу для периодического выполнения. Время между заданиями считается от конца одного и до
         // начала следующего
-
-
-
-
 
         Thread.sleep(20000);
         scheduledExecutorService.shutdown();

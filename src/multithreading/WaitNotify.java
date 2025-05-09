@@ -1,18 +1,21 @@
 package multithreading;
 
+import java.util.Arrays;
+import java.util.Map;
+
 public class WaitNotify {
     public static void main(String[] args) {
 
         Market market = new Market();
+        ThreadGroup group = new ThreadGroup("ThreadGroup");
         Producer producer = new Producer(market);
         Consumer consumer = new Consumer(market);
-        Thread threadProducer = new Thread(producer);
-        Thread threadConsumer = new Thread(consumer);
+        Thread threadProducer = new Thread(group, producer, "Producer Thread");
+        Thread threadConsumer = new Thread(group, consumer,  "Consumer Thread");
         threadProducer.start();
         threadConsumer.start();
-
-
-
+        System.out.println("Active: " + group.activeCount());
+        System.out.println("Name: " + threadConsumer.getThreadGroup());
     }
 }
 
