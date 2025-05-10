@@ -12,10 +12,9 @@ public class Application {
             case 1 -> new GibsonFactory();
             case 2 -> new FenderFactory();
             case 3 -> new YamahaFactory();
-            default -> null;
+            default -> throw new IllegalArgumentException("Тип гитары неопределен");
         };
 
         OrderGuitar orderGuitar = new OrderGuitar(finishFactory);
-
     }
 }
