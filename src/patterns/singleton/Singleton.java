@@ -5,7 +5,7 @@ import java.util.Objects;
 class Singleton {
 
     private static Singleton instance;
-    private String name;
+    private final String name;
 
     private Singleton(String name) {
         this.name = name;
