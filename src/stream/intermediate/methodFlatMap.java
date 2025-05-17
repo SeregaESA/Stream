@@ -1,4 +1,4 @@
-package stream;
+package stream.intermediate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,11 @@ public class methodFlatMap {
         // список факультетов, а в факультетах есть еще списки студентов. Благодаря flatMap мы можем работать с
         // списком студентов через facultyList.
 
-        Student st1 = new Student("Mariya", 'M', 22,3, 8.3);
-        Student st2 = new Student("Nikolay", 'M', 28,2, 6.4);
-        Student st3 = new Student("Elena", 'W', 19,1, 8.9);
-        Student st4 = new Student("Petr", 'M', 35,4, 7);
-        Student st5 = new Student("Bob", 'M', 22,3, 8.3);
+        StudentStream st1 = new StudentStream("Mariya", 'M', 22,3, 8.3);
+        StudentStream st2 = new StudentStream("Nikolay", 'M', 28,2, 6.4);
+        StudentStream st3 = new StudentStream("Elena", 'W', 19,1, 8.9);
+        StudentStream st4 = new StudentStream("Petr", 'M', 35,4, 7);
+        StudentStream st5 = new StudentStream("Bob", 'M', 22,3, 8.3);
 
         Faculty f1 = new Faculty("Economics");
         Faculty f2 = new Faculty("History");
@@ -36,18 +36,18 @@ public class methodFlatMap {
 
 class Faculty {
     String name;
-    List<Student> studentsOnfFaculty;
+    List<StudentStream> studentsOnfFaculty;
 
     public Faculty(String name) {
         this.name = name;
         studentsOnfFaculty = new ArrayList<>();
     }
 
-    public List<Student> getStudentsOnfFaculty() {
+    public List<StudentStream> getStudentsOnfFaculty() {
         return studentsOnfFaculty;
     }
 
-    public void addStudentsToFaculty (Student student) {
+    public void addStudentsToFaculty (StudentStream student) {
         studentsOnfFaculty.add(student);
     }
 

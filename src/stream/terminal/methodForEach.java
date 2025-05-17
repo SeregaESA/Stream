@@ -1,4 +1,4 @@
-package stream;
+package stream.terminal;
 
 import java.util.Arrays;
 

@@ -29,7 +29,7 @@ public class Test {
 
         System.out.println("----------------------------");
 
-        Product productDekoratorTwo = new DekoratorTwo(new ProductUmEmp());
+        Product productDekoratorTwo = new DekoratorTwo(productDekoratorOne);
         productDekoratorTwo.display();
         productDekoratorTwo.getPrice(2,3);
 

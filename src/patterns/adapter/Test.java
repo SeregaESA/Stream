@@ -5,8 +5,8 @@ public class Test {
 
         Method method = new Method();
 
-        method.method(2).lineOne();
-        method.method(2).lineOne();
+        method.method(1).lineOne();
+        method.method(1).lineOne();
 
     }
 }

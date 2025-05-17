@@ -2,7 +2,7 @@ package patterns.prototype;
 
 import java.util.Objects;
 
-public class ExPrototype extends Prototype{
+public class ExPrototype extends Prototype {
 
     String pop;
 
